@@ -1,0 +1,43 @@
+:root {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #121212;
+  background: #f4f7fb;
+}
+body { margin: 0; }
+.app { max-width: 980px; margin: 24px auto; padding: 16px; }
+.panel {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.hidden { display: none; }
+.row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+label { display: flex; flex-direction: column; gap: 6px; font-size: 14px; }
+input, select, textarea, button {
+  font: inherit;
+  padding: 8px 10px;
+  border: 1px solid #cfd6df;
+  border-radius: 8px;
+}
+button { cursor: pointer; background: #f8fbff; }
+button.primary { background: #1368ec; color: #fff; border-color: #1368ec; }
+.progressWrap { display: flex; align-items: center; gap: 10px; }
+.progressBar { flex: 1; height: 10px; background: #e8eef7; border-radius: 999px; overflow: hidden; }
+#progressFill { height: 100%; width: 0%; background: #1368ec; }
+.anchors {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 8px;
+}
+.anchor {
+  padding: 8px 10px;
+  border: 1px solid #dbe3ee;
+  border-radius: 8px;
+}
+.anchor.active { border-color: #1368ec; background: #eef5ff; }
+.muted { color: #5f6b7a; margin-top: 0; }
+.current { margin-top: 12px; font-size: 18px; }
+pre { white-space: pre-wrap; word-break: break-word; }
