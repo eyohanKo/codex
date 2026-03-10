@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Baseline Fast Entry</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header>
+        <h1>Baseline Fast Entry (Desktop)</h1>
+        <p>숫자키 0~4 입력 즉시 저장 + 다음 항목 이동</p>
+      </header>
+
+      <section id="setupView" class="panel">
+        <div class="row">
+          <label>Patient ID <input id="patientId" placeholder="P-0001" /></label>
+          <label>Patient Name <input id="patientName" placeholder="홍길동" /></label>
+        </div>
+        <div class="row">
+          <label>Mode
+            <select id="entryMode">
+              <option value="quick">Quick (Core 11)</option>
+              <option value="extended">Extended (Core 11 + Optional 3)</option>
+            </select>
+          </label>
+          <button id="startBtn" class="primary">입력 시작</button>
+        </div>
+        <details>
+          <summary>단축키</summary>
+          <ul>
+            <li>0~4: 점수 입력 후 자동 다음</li>
+            <li>N: not_assessed</li>
+            <li>Backspace: 이전 항목</li>
+            <li>Ctrl+S: draft 저장(JSON 다운로드)</li>
+            <li>Ctrl+Enter: 최종 저장(JSON 다운로드)</li>
+          </ul>
+        </details>
+      </section>
+
+      <section id="cardView" class="panel hidden">
+        <div class="progressWrap">
+          <div id="progressText">1/11</div>
+          <div class="progressBar"><div id="progressFill"></div></div>
+        </div>
+        <h2 id="domainTitle"></h2>
+        <p id="domainKey" class="muted"></p>
+        <div id="anchors" class="anchors"></div>
+        <p class="current">현재 선택: <strong id="currentSelection">-</strong></p>
+      </section>
+
+      <section id="summaryView" class="panel hidden">
+        <h2>요약 입력</h2>
+        <label>global_baseline_summary
+          <textarea id="globalSummary" rows="4" placeholder="1~3문장 요약"></textarea>
+        </label>
+        <div class="row">
+          <button id="voiceBtn">🎤 음성입력 시작/중지</button>
+          <button id="saveDraftBtn">Draft 저장</button>
+          <button id="saveFinalBtn" class="primary">최종 저장</button>
+        </div>
+      </section>
+
+      <section id="resultView" class="panel hidden">
+        <h2>저장 완료</h2>
+        <pre id="resultJson"></pre>
+        <button id="restartBtn">새 입력</button>
+      </section>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
